@@ -1,0 +1,21 @@
+﻿<Window x:Class="Concurrency_Pitfalls.Lock_ups2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Concurrency_Pitfalls"
+        mc:Ignorable="d"
+        Title="Lock_ups2" Height="300" Width="300">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label x:Name="label" Height="100" Width="100" Content="{Binding Value2}" />
+                <Button x:Name="button" Grid.Row="1" Content="Click Here"  Click="button_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
