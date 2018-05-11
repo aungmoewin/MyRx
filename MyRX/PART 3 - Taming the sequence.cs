@@ -994,7 +994,10 @@ namespace MyRX {
             var evenObs = Observable.Interval(TimeSpan.FromSeconds(2)).Where(t => t % 2 == 0);
             var oddObs = Observable.Interval(TimeSpan.FromSeconds(1)).Where(t => t % 2 != 0);          
             var sampleObs = oddObs.Sample(evenObs)
-            .Zip(evenObs, (o, e) => new { e, o }).Subscribe(Console.WriteLine);            
+            .Zip(evenObs, (o, e) => new { e, o }).Subscribe(Console.WriteLine); 
+            
+
+
             Console.ReadKey();
         }
     }
