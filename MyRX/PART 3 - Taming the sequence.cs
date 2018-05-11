@@ -985,22 +985,19 @@ namespace MyRX {
     #endregion
 
     #region "Sample"
-    class Sample {
-        static void Main() {
-            //var interval = Observable.Interval(TimeSpan.FromMilliseconds(150));
-            //interval.Subscribe(i => Console.WriteLine($"Interval => {i}"));
-            //interval.Sample(TimeSpan.FromSeconds(1)).Subscribe(Console.WriteLine);
+    //class Sample {
+    //    static void Main() {
+    //        //var interval = Observable.Interval(TimeSpan.FromMilliseconds(150));
+    //        //interval.Subscribe(i => Console.WriteLine($"Interval => {i}"));
+    //        //interval.Sample(TimeSpan.FromSeconds(1)).Subscribe(Console.WriteLine);
 
-            var evenObs = Observable.Interval(TimeSpan.FromSeconds(2)).Where(t => t % 2 == 0);
-            var oddObs = Observable.Interval(TimeSpan.FromSeconds(1)).Where(t => t % 2 != 0);          
-            var sampleObs = oddObs.Sample(evenObs)
-            .Zip(evenObs, (o, e) => new { e, o }).Subscribe(Console.WriteLine); 
-            
-
-
-            Console.ReadKey();
-        }
-    }
+    //        var evenObs = Observable.Interval(TimeSpan.FromSeconds(2)).Where(t => t % 2 == 0);
+    //        var oddObs = Observable.Interval(TimeSpan.FromSeconds(1)).Where(t => t % 2 != 0);          
+    //        var sampleObs = oddObs.Sample(evenObs)
+    //        .Zip(evenObs, (o, e) => new { e, o }).Subscribe(Console.WriteLine); 
+    //        Console.ReadKey();
+    //    }
+    //}
     #endregion
 
     #region "Throttle"

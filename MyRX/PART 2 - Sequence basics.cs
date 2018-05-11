@@ -951,21 +951,21 @@ namespace MyRX {
     //}
 
     #region "Min Sequences"
-    //static class Program {
-    //    static Comparer<int> comparer = Comparer<int>.Default;
-    //    static Func<int, int, int> minOf = (x, y) => comparer.Compare(x, y) < 0 ? x : y;
-    //    static void Main() {
-    //        var subject = new Subject<int>();
-    //        var minScan = subject.Scan(minOf).DistinctUntilChanged();
-    //        minScan.Subscribe(Console.WriteLine);
-    //        subject.OnNext(2);
-    //        subject.OnNext(1);
-    //        subject.OnNext(3);
-    //        subject.OnNext(5);
-    //        subject.OnNext(0);
-    //        Console.ReadLine();
-    //    }
-    //}
+    static class Program {
+        static Comparer<int> comparer = Comparer<int>.Default;
+        static Func<int, int, int> minOf = (x, y) => comparer.Compare(x, y) < 0 ? x : y;
+        static void Main() {
+            var subject = new Subject<int>();
+            var minScan = subject.Scan(minOf).DistinctUntilChanged();
+            minScan.Subscribe(Console.WriteLine);
+            subject.OnNext(2);
+            subject.OnNext(1);
+            subject.OnNext(3);
+            subject.OnNext(5);
+            subject.OnNext(0);
+            Console.ReadLine();
+        }
+    }
     #endregion
 
     #region "Max Sequences"
