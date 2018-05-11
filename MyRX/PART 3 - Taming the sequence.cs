@@ -991,16 +991,10 @@ namespace MyRX {
             //interval.Subscribe(i => Console.WriteLine($"Interval => {i}"));
             //interval.Sample(TimeSpan.FromSeconds(1)).Subscribe(Console.WriteLine);
 
-            var evenObs = Observable.Interval(TimeSpan.FromSeconds(5)).Where(t => t % 2 == 0);
-            var oddObs = Observable.Interval(TimeSpan.FromSeconds(1)).Where(t => t % 2 != 0);
-            evenObs.Subscribe(i => Debug.WriteLine($"e = {i}"));
-            var sampleObs = oddObs.Sample(evenObs);
-            // .Timestamp()
-            sampleObs.Do(x => Debug.WriteLine($"o = {x}"))
-            // .Materialize()
-            .Zip(evenObs, (o, e) => new { e, o }).Subscribe(x => Debug.WriteLine(x));
-
-            
+            var evenObs = Observable.Interval(TimeSpan.FromSeconds(2)).Where(t => t % 2 == 0);
+            var oddObs = Observable.Interval(TimeSpan.FromSeconds(1)).Where(t => t % 2 != 0);          
+            var sampleObs = oddObs.Sample(evenObs)
+            .Zip(evenObs, (o, e) => new { e, o }).Subscribe(Console.WriteLine);            
             Console.ReadKey();
         }
     }
